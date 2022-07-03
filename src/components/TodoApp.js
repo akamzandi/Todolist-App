@@ -26,10 +26,15 @@ const TodoApp = () => {
     setTodos(newTodos);
   };
 
+  const onDelete = (id) => {
+    const updateteTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updateteTodos);
+  };
+
   return (
     <div className="container">
       <TodoFrom addTodoHandler={addTodoHandler} />
-      <TodoList todos={todos} onComplete={onComplete} />
+      <TodoList todos={todos} onComplete={onComplete} onDelete={onDelete} />
     </div>
   );
 };
