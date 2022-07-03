@@ -15,10 +15,21 @@ const TodoApp = () => {
     setTodos([...todos, newTodo]);
   };
 
+  const onComplete = (id) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, isCompleted: !todo.isCompleted };
+      } else {
+        return todo;
+      }
+    });
+    setTodos(newTodos);
+  };
+
   return (
     <div className="container">
       <TodoFrom addTodoHandler={addTodoHandler} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onComplete={onComplete} />
     </div>
   );
 };
