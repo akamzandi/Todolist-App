@@ -1,4 +1,4 @@
-import TodoFrom from "./TodoForm";
+import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import { useState } from "react";
 
@@ -33,7 +33,7 @@ const TodoApp = () => {
 
   return (
     <div className="container">
-      <TodoFrom addTodoHandler={addTodoHandler} />
+      <TodoForm addTodoHandler={addTodoHandler} />
       <TodoList todos={todos} onComplete={onComplete} onDelete={onDelete} />
     </div>
   );
