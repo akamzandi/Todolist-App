@@ -1,6 +1,6 @@
 const Todo = ({ todo }) => {
   return (
-    <div key={todo.id}>
+    <div>
       <div>{todo.text}</div>
       <div>
         <button>Edit</button>

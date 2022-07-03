@@ -1,3 +1,5 @@
+import Todo from "./Todo";
+
 const TodoList = ({ todos }) => {
   const renderTodos = () => {
     if (todos.length === 0) {
