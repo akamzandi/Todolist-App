@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const TodoFrom = (props) => {
+const TodoForm = (props) => {
   const [input, setInput] = useState("");
 
   const changeHandler = (e) => {
@@ -25,4 +25,4 @@ const TodoFrom = (props) => {
   );
 };
 
-export default TodoFrom;
+export default TodoForm;
