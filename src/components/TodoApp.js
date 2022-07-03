@@ -5,7 +5,7 @@ import { useState } from "react";
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
 
-  const addTodoHandler = (input) => {
+  const addTodo = (input) => {
     const newTodo = {
       id: Math.floor(Math.random() * 1000),
       text: input,
@@ -31,10 +31,26 @@ const TodoApp = () => {
     setTodos(updateteTodos);
   };
 
+  const updateTodo = (id, newValue) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, text: newValue };
+      } else {
+        return todo;
+      }
+    });
+    setTodos(newTodos);
+  };
+
   return (
     <div className="container">
-      <TodoForm addTodoHandler={addTodoHandler} />
-      <TodoList todos={todos} onComplete={onComplete} onDelete={onDelete} />
+      <TodoForm submitTodo={addTodo} />
+      <TodoList
+        todos={todos}
+        onComplete={onComplete}
+        onDelete={onDelete}
+        onUpdateTodo={updateTodo}
+      />
     </div>
   );
 };

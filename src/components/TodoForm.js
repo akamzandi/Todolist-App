@@ -13,14 +13,33 @@ const TodoForm = (props) => {
       alert("Enter something!");
       return;
     }
-    props.addTodoHandler(input);
+    props.submitTodo(input);
     setInput("");
   };
 
   return (
     <form onSubmit={submitHandler}>
-      <input type="text" value={input} onChange={changeHandler} />
-      <button type="submit">Add</button>
+      {props.edit ? (
+        <>
+          <input
+            type="text"
+            value={input}
+            onChange={changeHandler}
+            placeholder="update todo..."
+          />
+          <button type="submit">Update</button>
+        </>
+      ) : (
+        <>
+          <input
+            type="text"
+            value={input}
+            onChange={changeHandler}
+            placeholder="add todo..."
+          />
+          <button type="submit">Add</button>
+        </>
+      )}
     </form>
   );
 };
