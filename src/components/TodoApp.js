@@ -18,7 +18,7 @@ const TodoApp = () => {
   return (
     <div className="container">
       <TodoFrom addTodoHandler={addTodoHandler} />
-      <TodoList />
+      <TodoList todos={todos} />
     </div>
   );
 };
