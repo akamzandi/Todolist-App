@@ -5,6 +5,7 @@ import NavBar from "./NavBar";
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
+  const [filteredTodos, setFilteredTodos] = useState([]);
 
   const addTodo = (input) => {
     const newTodo = {
@@ -43,9 +44,25 @@ const TodoApp = () => {
     setTodos(newTodos);
   };
 
+  const filterTodos = (status) => {
+    switch (status) {
+      case "Completed":
+        setFilteredTodos(todos.filter((t) => t.isCompleted));
+        break;
+      case "Uncompleted":
+        setFilteredTodos(todos.filter((t) => !t.isCompleted));
+        break;
+      default:
+        setFilteredTodos(todos);
+    }
+  };
+
   return (
     <div className="container">
-      <NavBar unComplitedTodos={todos.filter((t) => !t.isCompleted).length} />
+      <NavBar
+        unComplitedTodos={todos.filter((t) => !t.isCompleted).length}
+        filterTodos={filterTodos}
+      />
       <TodoForm submitTodo={addTodo} />
       <TodoList
         todos={todos}
