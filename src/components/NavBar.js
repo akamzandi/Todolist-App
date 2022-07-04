@@ -1,14 +1,16 @@
 const NavBar = ({ unComplitedTodos }) => {
+  if (!unComplitedTodos) {
+    return (
+      <header>
+        <h2>write some todos!</h2>
+      </header>
+    );
+  }
+
   return (
     <header>
-      {unComplitedTodos ? (
-        <>
-          <span>{unComplitedTodos}</span>
-          <h2> are not completed</h2>
-        </>
-      ) : (
-        <h2>set your todos!</h2>
-      )}
+      <span>{unComplitedTodos}</span>
+      <h2> uncompleted task.</h2>
     </header>
   );
 };
