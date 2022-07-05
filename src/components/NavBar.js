@@ -1,4 +1,12 @@
-const NavBar = ({ unComplitedTodos, onSelect, status }) => {
+import Select from "react-select";
+
+const options = [
+  { value: "All", label: "All" },
+  { value: "Completed", label: "Completed" },
+  { value: "Uncompleted", label: "Uncompleted" },
+];
+
+const NavBar = ({ unComplitedTodos, onChange, selectedOption }) => {
   if (!unComplitedTodos) {
     return (
       <header>
@@ -10,12 +18,8 @@ const NavBar = ({ unComplitedTodos, onSelect, status }) => {
   return (
     <header>
       <span>{unComplitedTodos}</span>
-      <h2> uncompleted task.</h2>
-      <select onChange={onSelect} value={status}>
-        <option value="All">All</option>
-        <option value="Completed">Completed</option>
-        <option value="Uncompleted">Uncompleted</option>
-      </select>
+      <h2> uncompleted task</h2>
+      <Select onChange={onChange} value={selectedOption} options={options} />
     </header>
   );
 };
