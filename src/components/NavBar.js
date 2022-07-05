@@ -19,7 +19,12 @@ const NavBar = ({ unComplitedTodos, onChange, selectedOption }) => {
     <header>
       <span>{unComplitedTodos}</span>
       <h2> uncompleted task</h2>
-      <Select onChange={onChange} value={selectedOption} options={options} />
+      <Select
+        onChange={onChange}
+        value={selectedOption}
+        options={options}
+        className="select"
+      />
     </header>
   );
 };
