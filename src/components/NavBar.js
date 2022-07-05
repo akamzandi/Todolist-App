@@ -1,13 +1,4 @@
-import { useState } from "react";
-
-const NavBar = ({ unComplitedTodos, filterTodos }) => {
-  const [status, setStatus] = useState("All");
-
-  const changeHandler = (e) => {
-    setStatus(e.target.value);
-    filterTodos(e.target.value);
-  };
-
+const NavBar = ({ unComplitedTodos, onSelect, status }) => {
   if (!unComplitedTodos) {
     return (
       <header>
@@ -20,7 +11,7 @@ const NavBar = ({ unComplitedTodos, filterTodos }) => {
     <header>
       <span>{unComplitedTodos}</span>
       <h2> uncompleted task.</h2>
-      <select onChange={changeHandler} value={status}>
+      <select onChange={onSelect} value={status}>
         <option value="All">All</option>
         <option value="Completed">Completed</option>
         <option value="Uncompleted">Uncompleted</option>
